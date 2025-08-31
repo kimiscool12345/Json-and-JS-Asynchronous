@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json and JS Asynchronous</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #result {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 15px 25px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        #result:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.25);
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Converting a JS object into a JSON string, and sending to the server.</h3>
+    <h4 id="result"></h4>
+
+    <script>
+        // My object 
+        var myobj = {
+            name: "David",
+            age: 9,
+            grade: 7
+        };
+
+        var myjson = JSON.stringify(myobj); // Converts object to JSON string
+        var newobj = JSON.parse(myjson);    // Converts JSON string back into object
+
+        // Display the result (show age)
+        document.getElementById("result").innerHTML = "Age: " + newobj.age;
+    </script>
+</body>
+
+</html>

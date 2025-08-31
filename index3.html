@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index3</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #4facfe, #00f2fe);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #demo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 15px 25px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        #demo:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <h3>js promises</h3>
+    <p id="demo"></p>
+
+    <script>
+        function myDisplayer(message) {
+            document.getElementById("demo").innerHTML = message;
+        }
+
+        // Function to add numbers
+        function sum(a, b) {
+            myDisplayer("Sum = " + (a + b));
+        }
+
+        let myPromise = new Promise(function (myResolve, myReject) {
+            let x = 0;
+
+            if (x == 0) {
+                myResolve("OK ✅ Promise Resolved!");
+            } else {
+                myReject("ERROR ❌ Promise Rejected!");
+            }
+        });
+
+        myPromise.then(
+            function (value) { sum(5, 5); },   // Calls sum when resolved
+            function (error) { myDisplayer(error); } // Shows error if rejected
+        );
+    </script>
+</body>
+
+</html>
